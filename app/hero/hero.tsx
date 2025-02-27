@@ -4,6 +4,7 @@ import IconButton from '~/components/IconButton';
 import ArrowUpRightIcon from '~/icons/ArrowUpRightIcon';
 import GithubIcon from '~/icons/GithubIcon';
 import LinkedinIcon from '~/icons/LinkedinIcon';
+import { optimize } from 'lib/image';
 
 export function Hero() {
   return (
@@ -29,7 +30,7 @@ export function Hero() {
         </div>
         <div className="mix-blend-luminosity relative">
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 bg-gray-300 flex aspect-1/1 w-full max-h-full rounded-xl" />
-          <img src="/akl1.png" alt='Profile' className="aspect-6/7 object-contain w-100" />
+          <img srcSet={optimize("/akl1.png")} alt='Profile' className="aspect-6/7 object-contain w-100" />
         </div>
       </div>
     </section>

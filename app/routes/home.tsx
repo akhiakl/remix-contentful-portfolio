@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Route } from "./+types/home";
 import { Hero } from '~/hero/hero';
+import FeaturedProjects from '~/projects/featured-projects';
+import Skills from '~/skills/skills';
 
 // eslint-disable-next-line no-empty-pattern
 export function meta({}: Route.MetaArgs) {
@@ -11,5 +13,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Hero />;
+  return <>
+    <Hero />
+    <FeaturedProjects />
+    <Skills />
+  </>;
 }

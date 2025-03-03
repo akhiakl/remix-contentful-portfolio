@@ -31,6 +31,32 @@
 }
 
 @layer utilities {
+  @keyframes eclipse {
+    0% {
+      transform: translateX(110%);
+    }
+
+    100% {
+      transform: translateX(-110%);
+    }
+  }
+
+  .eclipse {
+    @apply relative overflow-hidden flex w-fit h-fit items-center justify-center rounded-full p-1;
+
+    * {
+      @apply z-[1];
+    }
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 blur-[1px] bg-white translate-x-1/2;
+      background-image: radial-gradient(circle at 50% 50%, transparent, #000),
+        linear-gradient(#fff, #fff);
+      animation: eclipse 2s linear infinite;
+    }
+  }
+
   .container-full {
     @apply px-4 md:px-16;
   }

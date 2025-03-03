@@ -5,6 +5,7 @@ import ArrowUpRightIcon from '~/icons/ArrowUpRightIcon';
 import GithubIcon from '~/icons/GithubIcon';
 import LinkedinIcon from '~/icons/LinkedinIcon';
 import { optimize } from 'lib/image';
+import Typewriter from '~/components/Typewriter';
 
 export function Hero() {
   return (
@@ -15,9 +16,7 @@ export function Hero() {
             <span className="text-5xl md:text-7xl">Hi, i am</span><br />
             Akhil K.
           </h1>
-          <p className="text-gray-400">
-            A Senior Front End Developer specializing in React and Next.js
-          </p>
+          <Typewriter className="text-gray-400 uppercase relative" texts={['SENIOR FRONT END DEVELOPER', 'SENIOR FULL-STACK DEVELOPER']} />
           <div className='flex gap-4 items-center mt-8 md:mt-10'>
             <Button icon={<ArrowUpRightIcon />}>Contact Me</Button>
             <IconButton title="Linkedin" href="https://www.linkedin.com/in/akhiakl/">

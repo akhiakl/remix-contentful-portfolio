@@ -14,6 +14,14 @@
         "search": ""
       }
     ],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "images.ctfassets.net",
+        "pathname": "^/.*$",
+        "search": ""
+      }
+    ],
     "minimumCacheTTL": 60,
     "qualities": [
       25,

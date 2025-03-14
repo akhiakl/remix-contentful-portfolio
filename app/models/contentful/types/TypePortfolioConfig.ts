@@ -20,11 +20,17 @@ export interface TypePortfolioConfigFields {
      */
     lastName: EntryFieldTypes.Symbol;
     /**
+     * Field type definition for field 'titles' (Titles)
+     * @name Titles
+     * @localized false
+     */
+    titles?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+    /**
      * Field type definition for field 'summary' (Summary)
      * @name Summary
      * @localized false
      */
-    summary: EntryFieldTypes.Text;
+    summary?: EntryFieldTypes.Text;
     /**
      * Field type definition for field 'address' (Address)
      * @name Address
@@ -75,7 +81,7 @@ export interface TypePortfolioConfigFields {
  * @type {TypePortfolioConfigSkeleton}
  * @author 2cbOO34WfrCLVZ2BiLBSGd
  * @since 2024-02-17T18:11:50.121Z
- * @version 1
+ * @version 9
  */
 export type TypePortfolioConfigSkeleton = EntrySkeletonType<TypePortfolioConfigFields, "portfolioConfig">;
 /**
@@ -84,10 +90,15 @@ export type TypePortfolioConfigSkeleton = EntrySkeletonType<TypePortfolioConfigF
  * @type {TypePortfolioConfig}
  * @author Akhil K<akhilthedevz@gmail.com>
  * @since 2024-02-17T18:11:50.121Z
- * @version 1
+ * @version 9
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/portfolioConfig
  */
 export type TypePortfolioConfig<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypePortfolioConfigSkeleton, Modifiers, Locales>;
+
+export function isTypePortfolioConfig<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypePortfolioConfig<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'portfolioConfig'
+}
+
 export type TypePortfolioConfigWithoutLinkResolutionResponse = TypePortfolioConfig<"WITHOUT_LINK_RESOLUTION">;
 export type TypePortfolioConfigWithoutUnresolvableLinksResponse = TypePortfolioConfig<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypePortfolioConfigWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypePortfolioConfig<"WITH_ALL_LOCALES", Locales>;

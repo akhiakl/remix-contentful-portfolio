@@ -76,6 +76,11 @@ export type TypeBlogSkeleton = EntrySkeletonType<TypeBlogFields, "blog">;
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/blog
  */
 export type TypeBlog<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeBlogSkeleton, Modifiers, Locales>;
+
+export function isTypeBlog<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeBlog<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'blog'
+}
+
 export type TypeBlogWithoutLinkResolutionResponse = TypeBlog<"WITHOUT_LINK_RESOLUTION">;
 export type TypeBlogWithoutUnresolvableLinksResponse = TypeBlog<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypeBlogWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypeBlog<"WITH_ALL_LOCALES", Locales>;

@@ -3,6 +3,8 @@ import type { Route } from "./+types/home";
 import { Hero } from '~/hero/hero';
 import FeaturedProjects from '~/projects/featured-projects';
 import Skills from '~/skills/skills';
+import { client } from '~/models/contentful/server';
+import FeaturedProjectsSkeleton from '~/components/FeaturedProjectsSkeleton';
 
 // eslint-disable-next-line no-empty-pattern
 export function meta({}: Route.MetaArgs) {
@@ -12,10 +14,19 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export function loader() {
+  const nonCriticalData = client.getProjects()
+  return {
+    nonCriticalData
+  };
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
   return <>
     <Hero />
-    <FeaturedProjects />
     <Skills />
+    <React.Suspense fallback={<FeaturedProjectsSkeleton />}>
+      <FeaturedProjects dataLoader={loaderData.nonCriticalData} />
+    </React.Suspense>
   </>;
 }

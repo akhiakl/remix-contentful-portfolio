@@ -58,6 +58,11 @@ export type TypeTalksSkeleton = EntrySkeletonType<TypeTalksFields, "talks">;
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/talks
  */
 export type TypeTalks<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeTalksSkeleton, Modifiers, Locales>;
+
+export function isTypeTalks<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeTalks<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'talks'
+}
+
 export type TypeTalksWithoutLinkResolutionResponse = TypeTalks<"WITHOUT_LINK_RESOLUTION">;
 export type TypeTalksWithoutUnresolvableLinksResponse = TypeTalks<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypeTalksWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypeTalks<"WITH_ALL_LOCALES", Locales>;

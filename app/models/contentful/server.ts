@@ -1,43 +1,33 @@
 import { createClient } from "contentful"
-import { getPlaiceholder } from "plaiceholder";
-import { TypeBlogSkeleton, TypePageSkeleton, TypeProjectsSkeleton } from "./types";
+import type { TypeBlogSkeleton, TypePageSkeleton, TypeProjectSkeleton } from "./types";
 
 const contentfulClient = createClient({
     space: process.env.CONTENTFUL_SPACE_ID ?? '',
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? '',
+    environment: process.env.CONTENTFUL_ENVIRONMENT ?? 'master'
 })
 
 
 async function getProjects() {
-    const { items } = await contentfulClient.getEntries<TypeProjectsSkeleton>({
-        content_type: 'projects',
-        order: ['-fields.releaseDate'],
-        select: ['fields.title', 'fields.desc', 'fields.releaseDate', 'fields.link', 'fields.previewImage']
+    const { items } = await contentfulClient.getEntries<TypeProjectSkeleton>({
+        content_type: 'project',
+        order: ['-sys.createdAt'],
+        select: ['fields.title', 'fields.description', 'fields.githubUrl', 'fields.url', 'fields.image', 'fields.techStack', 'sys.createdAt']
     });
     const formattedData = items.map(
         async (project) => {
-            const { title, desc, releaseDate, link, previewImage } = project.fields;
-            if ('fields' in previewImage && previewImage?.fields?.file?.url) {
-                const imageUrl = `https:${previewImage.fields.file.url}`;
-                const buffer = await fetch(imageUrl).then(async (res) =>
-                    Buffer.from(await res.arrayBuffer())
-                );
-                const { css, metadata: { height, width } } = await getPlaiceholder(buffer);
-                return {
-                    title,
-                    desc,
-                    releaseDate,
-                    link,
-                    image: { src: previewImage.fields.file.url, height, width },
-                    imageAlt: previewImage.fields.description,
-                    css,
-                };
-            }
-            return { title, desc, releaseDate, link, image: null, imageAlt: null, css: '' };
+            const { title, image, description, githubUrl, techStack, url } = project.fields;
+            return {
+                title,
+                description,
+                siteUrl: url,
+                githubUrl,
+                techStack,
+                imageUrl: ('fields' in image && image?.fields?.file?.url) && image.fields.file.url,
+            };
         }
     );
     const projects = await Promise.all(formattedData);
-    console.log(projects)
     return projects
 }
 

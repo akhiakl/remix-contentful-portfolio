@@ -54,6 +54,14 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap",
   },
+  {
+    rel: "preload",
+    imageSrcSet: optimize("/akl1.png"),
+    imageSizes: "(max-width: 768px) 50vw, 33vw",
+    href: "/akl1.png",
+    as: "image",
+    type: "image/webp",
+  }
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -75,7 +83,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <link rel="preload" as="image" href="/akl1.png" imageSrcSet={optimize("/akl1.png")} imageSizes="(max-width: 768px) 50vw, 33vw" type="image/webp" />
       </head>
       <body>
         {children}

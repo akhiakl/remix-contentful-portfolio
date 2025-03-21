@@ -24,13 +24,15 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
   const { t } = useTranslation()
   return (
     <div className="grid grid-col-1 md:grid-cols-2 gap-12 mt-4 items-center">
-      <div className="bg-neutral-900 p-15 rounded-xl aspect-square flex justify-center items-center" ref={ref}>
+      <div className="bg-neutral-900 p-7 md:p-15 rounded-xl aspect-square flex justify-center items-center" ref={ref}>
         <img
           loading="lazy"
           className="max-w-full h-auto object-contain rounded-xl"
           srcSet={optimize(imageUrl, { quality: 60 })}
           alt={title}
-          sizes="(max-width: 768px) 100vw, 33vw"
+          width={1000}
+          height={563}
+          sizes="(max-width: 768px) 70vw, 33vw"
         />
       </div>
       <motion.div initial={{ visibility: "hidden" }}

@@ -17,6 +17,7 @@ import i18next from "~/i18next.server";
 import { useTranslation } from 'react-i18next';
 import { useChangeLanguage } from 'remix-i18next/react';
 import i18n from './i18n';
+import { optimize } from 'lib/image';
 
 export async function loader({ request }: Route.LoaderArgs) {
   const locale = await i18next.getLocale(request);
@@ -74,6 +75,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="preload" as="image" href="/akl1.png" imageSrcSet={optimize("/akl1.png")} type="image/webp" />
       </head>
       <body>
         {children}

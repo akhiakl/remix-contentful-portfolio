@@ -26,6 +26,7 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
     <div className="grid grid-col-1 md:grid-cols-2 gap-12 mt-4 items-center">
       <div className="bg-neutral-900 p-15 rounded-xl aspect-square flex justify-center items-center" ref={ref}>
         <img
+          loading="lazy"
           className="max-w-full h-auto object-contain rounded-xl"
           srcSet={optimize(imageUrl, { quality: 60 })}
           alt={title}

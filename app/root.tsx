@@ -75,7 +75,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <link rel="preload" as="image" href="/akl1.png" imageSrcSet={optimize("/akl1.png")} type="image/webp" />
+        <link rel="preload" as="image" href="/akl1.png" imageSrcSet={optimize("/akl1.png")} imageSizes="(max-width: 768px) 50vw, 33vw" type="image/webp" />
       </head>
       <body>
         {children}

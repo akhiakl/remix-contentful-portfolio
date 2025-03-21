@@ -5,5 +5,7 @@
   "built using {{techStack}}": "Built using {{techStack}}",
   "locale_de": "🇩🇪 German",
   "locale_en": "🇺🇸 English",
-  "locale_es": "🇪🇸 Spanish"
+  "locale_es": "🇪🇸 Spanish",
+  "techstack": "Tech Stack",
+  "visitsite": "Visit Site"
 }

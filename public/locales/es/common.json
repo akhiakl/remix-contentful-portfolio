@@ -5,5 +5,7 @@
   "built using {{techStack}}": "Construido con {{techStack}}",
   "locale_de": "🇩🇪 Alemán",
   "locale_en": "🇺🇸 Inglés",
-  "locale_es": "🇪🇸 Español"
+  "locale_es": "🇪🇸 Español",
+  "techstack": "Pila de tecnología",
+  "visitsite": "Visitar sitio"
 }

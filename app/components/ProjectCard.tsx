@@ -5,6 +5,7 @@ import GithubIcon from '~/icons/GithubIcon'
 import { optimize } from 'lib/image'
 import { motion, useScroll, useTransform } from 'motion/react'
 import techIcons from '~/icons/tech'
+import { useTranslation } from 'react-i18next'
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -20,7 +21,7 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
-
+  const { t } = useTranslation()
   return (
     <div className="grid grid-col-1 md:grid-cols-2 gap-12 mt-4 items-center">
       <div className="bg-neutral-900 p-15 rounded-xl aspect-square flex justify-center items-center" ref={ref}>
@@ -38,7 +39,7 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
         <p className="text-neutral-300">{description}</p>
         <ul className="mb-4">
           <li className="py-4 border-b border-neutral-500 uppercase">
-            Tech Stack
+            {t('techstack')}
           </li>
           {techStack?.map((stackItem) => {
             const key = stackItem?.toLowerCase() as keyof typeof techIcons;
@@ -53,7 +54,7 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
           })}
         </ul>
         <div className="flex gap-4">
-          <Button variant="link" target="_blank" href={siteUrl} icon={<ArrowUpRightIcon />}>VISIT SITE</Button>
+          <Button variant="link" target="_blank" href={siteUrl} icon={<ArrowUpRightIcon />}>{t('visitsite')}</Button>
           {githubUrl && <Button variant="link" href={githubUrl} icon={<GithubIcon />}>GITHUB</Button>}
         </div>
       </motion.div>

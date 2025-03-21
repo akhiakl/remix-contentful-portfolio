@@ -1,3 +1,13 @@
-import { type RouteConfig, route } from "@react-router/dev/routes";
+import { type RouteConfig } from "@react-router/dev/routes";
+import { flatRoutes } from "@react-router/fs-routes";
 
-export default [route(":lang?", "routes/($lang).home.tsx"), route("/api/draft", "routes/api/draft.ts"), route("/api/disable-draft", "routes/api/disable-draft.ts")] satisfies RouteConfig;
+export default [
+  // for all api routes
+  ...(await flatRoutes({
+    rootDirectory: "./routes/api",
+  })),
+  // for remaining routes
+  ...(await flatRoutes({
+    ignoredRouteFiles: ["routes/api/**"],
+  })),
+] satisfies RouteConfig;

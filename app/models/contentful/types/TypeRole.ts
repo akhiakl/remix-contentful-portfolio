@@ -34,6 +34,11 @@ export type TypeRoleSkeleton = EntrySkeletonType<TypeRoleFields, "role">;
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/role
  */
 export type TypeRole<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeRoleSkeleton, Modifiers, Locales>;
+
+export function isTypeRole<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeRole<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'role'
+}
+
 export type TypeRoleWithoutLinkResolutionResponse = TypeRole<"WITHOUT_LINK_RESOLUTION">;
 export type TypeRoleWithoutUnresolvableLinksResponse = TypeRole<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypeRoleWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypeRole<"WITH_ALL_LOCALES", Locales>;

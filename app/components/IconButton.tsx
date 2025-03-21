@@ -10,7 +10,7 @@ type ButtonProps = IconButtonBaseProps & React.ButtonHTMLAttributes<HTMLButtonEl
 
 type IconButtonProps = AnchorButtonProps | ButtonProps;
 
-const containerClass = "group flex items-center p-3 bg-gray-800 hover:bg-gray-700 text-primary rounded-full font-bold duration-300 ease-out cursor-pointer";
+const containerClass = "group flex items-center p-3 bg-neutral-800 hover:bg-neutral-700 text-primary rounded-full font-bold duration-300 ease-out cursor-pointer";
 const iconClass = "w-5 h-5 flex justify-center items-center";
 
 const IconButton: React.FC<IconButtonProps> = ({ children, href, ...props }) => {

@@ -46,6 +46,11 @@ export type TypeSeoMetaDataSkeleton = EntrySkeletonType<TypeSeoMetaDataFields, "
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/seoMetaData
  */
 export type TypeSeoMetaData<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeSeoMetaDataSkeleton, Modifiers, Locales>;
+
+export function isTypeSeoMetaData<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeSeoMetaData<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'seoMetaData'
+}
+
 export type TypeSeoMetaDataWithoutLinkResolutionResponse = TypeSeoMetaData<"WITHOUT_LINK_RESOLUTION">;
 export type TypeSeoMetaDataWithoutUnresolvableLinksResponse = TypeSeoMetaData<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypeSeoMetaDataWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypeSeoMetaData<"WITH_ALL_LOCALES", Locales>;

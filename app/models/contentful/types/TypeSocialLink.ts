@@ -40,6 +40,11 @@ export type TypeSocialLinkSkeleton = EntrySkeletonType<TypeSocialLinkFields, "so
  * @link https://app.contentful.com/spaces/ega1952vfda2/environments/dev/content_types/socialLink
  */
 export type TypeSocialLink<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeSocialLinkSkeleton, Modifiers, Locales>;
+
+export function isTypeSocialLink<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeSocialLink<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'socialLink'
+}
+
 export type TypeSocialLinkWithoutLinkResolutionResponse = TypeSocialLink<"WITHOUT_LINK_RESOLUTION">;
 export type TypeSocialLinkWithoutUnresolvableLinksResponse = TypeSocialLink<"WITHOUT_UNRESOLVABLE_LINKS">;
 export type TypeSocialLinkWithAllLocalesResponse<Locales extends LocaleCode = LocaleCode> = TypeSocialLink<"WITH_ALL_LOCALES", Locales>;

@@ -1,0 +1,9 @@
+{
+  "about": "Acerca de",
+  "projects": "Proyectos",
+  "contact": "Contacto",
+  "built using {{techStack}}": "Construido con {{techStack}}",
+  "locale_de": "🇩🇪 Alemán",
+  "locale_en": "🇺🇸 Inglés",
+  "locale_es": "🇪🇸 Español"
+}

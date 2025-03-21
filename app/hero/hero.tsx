@@ -16,7 +16,7 @@ export function Hero() {
             <span className="text-5xl md:text-7xl">Hi, i am</span><br />
             Akhil K.
           </h1>
-          <Typewriter className="text-gray-400 uppercase relative" texts={['SENIOR FRONT END DEVELOPER', 'SENIOR FULL-STACK DEVELOPER']} />
+          <Typewriter className="text-neutral-400 uppercase relative" texts={['SENIOR FRONT END DEVELOPER', 'SENIOR FULL-STACK DEVELOPER']} />
           <div className='flex gap-4 items-center mt-8 md:mt-10'>
             <Button icon={<ArrowUpRightIcon />}>Contact Me</Button>
             <IconButton title="Linkedin" href="https://www.linkedin.com/in/akhiakl/">
@@ -28,7 +28,7 @@ export function Hero() {
           </div>
         </div>
         <div className="mix-blend-luminosity relative">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 bg-gray-300 flex aspect-1/1 w-full max-h-full rounded-xl" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 bg-neutral-300 flex aspect-1/1 w-full max-h-full rounded-xl" />
           <img srcSet={optimize("/akl1.png")} alt='Profile' className="aspect-6/7 object-contain w-100" />
         </div>
       </div>

@@ -6,11 +6,11 @@ import Backend from "i18next-fs-backend";
 const i18next = new RemixI18Next({
   detection: {
     supportedLanguages: i18n.supportedLngs,
-    fallbackLanguage: i18n.fallbackLng,
+    fallbackLanguage: i18n.defaultLng,
     async findLocale(request) {
       const requestUrl = new URL(request?.url);
       const locale = requestUrl.pathname.split("/").at(1);
-      return locale ?? null;
+      return locale ?? i18n.defaultLng;
     },
   },
   // This is the configuration for i18next used

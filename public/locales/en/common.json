@@ -1,5 +1,9 @@
 {
   "about": "About",
   "projects": "Projects",
-  "contact": "Contact"
+  "contact": "Contact",
+  "built using {{techStack}}": "Built using {{techStack}}",
+  "locale_de": "🇩🇪 German",
+  "locale_en": "🇺🇸 English",
+  "locale_es": "🇪🇸 Spanish"
 }

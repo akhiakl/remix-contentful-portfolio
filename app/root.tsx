@@ -4,6 +4,7 @@ import {
   Links,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -15,9 +16,21 @@ import Footer from './navigation/footer';
 import i18next from "~/i18next.server";
 import { useTranslation } from 'react-i18next';
 import { useChangeLanguage } from 'remix-i18next/react';
+import i18n from './i18n';
 
 export async function loader({ request }: Route.LoaderArgs) {
   const locale = await i18next.getLocale(request);
+  const url = new URL(request.url);
+  const pathname = url.pathname;
+
+  const segments = pathname.split("/").filter(Boolean);
+
+  if (segments.length > 0 && locale === i18n.defaultLng) {
+    // Remove the default locale from the URL
+    const newPath = "/" + segments.slice(1).join("/");
+    return redirect(newPath || "/");
+  }
+
   return { locale };
 }
 

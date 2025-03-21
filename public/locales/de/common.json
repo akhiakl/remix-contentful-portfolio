@@ -1,5 +1,9 @@
 {
   "about": "Über uns",
   "projects": "Projekte",
-  "contact": "Kontakt"
+  "contact": "Kontakt",
+  "built using {{techStack}}": "Erstellt mit {{techStack}}",
+  "locale_de": "🇩🇪 Deutsch",
+  "locale_en": "🇺🇸 Englisch",
+  "locale_es": "🇪🇸 Spanisch"
 }

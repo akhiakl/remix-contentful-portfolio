@@ -6,6 +6,7 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
   const requestUrl = new URL(request?.url);
   const secret = requestUrl?.searchParams?.get('secret');
   const slug = requestUrl?.searchParams?.get('slug');
+  const locale = requestUrl?.searchParams?.get('locale');
 
   // This secret should only be known to this API route and Contentful
   if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !slug) {
@@ -15,7 +16,7 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
   const draft = await draftMode(request)
   const headers = await draft.enable();
 
-  return redirect(`/${slug}`, {
+  return redirect(`/${locale}/${slug}`, {
     headers
   });
 };

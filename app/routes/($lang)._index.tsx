@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Route } from "./+types/($lang).home";
+import type { Route } from "./+types/($lang)._index";
 import { Hero } from '~/hero/hero';
 import FeaturedProjects from '~/projects/featured-projects';
 import Skills from '~/skills/skills';

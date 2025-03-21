@@ -1,15 +1,9 @@
-import { createClient } from "contentful"
+import { getClient } from "lib/contentful/client";
 import type { TypeBlogSkeleton, TypePageSkeleton, TypeProjectSkeleton } from "./types";
-
-const contentfulClient = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID ?? '',
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? '',
-    environment: process.env.CONTENTFUL_ENVIRONMENT ?? 'master'
-})
 
 
 async function getProjects() {
-    const { items } = await contentfulClient.getEntries<TypeProjectSkeleton>({
+    const { items } = await getClient().getEntries<TypeProjectSkeleton>({
         content_type: 'project',
         order: ['-sys.createdAt'],
         select: ['fields.title', 'fields.description', 'fields.githubUrl', 'fields.url', 'fields.image', 'fields.techStack', 'sys.createdAt']
@@ -33,7 +27,7 @@ async function getProjects() {
 
 
 async function getAllBlogs() {
-    const { items } = await contentfulClient.getEntries({
+    const { items } = await getClient().getEntries({
         content_type: 'blog',
         order: ['-sys.createdAt'],
         select: ['fields.title', 'fields.description', 'fields.tag', 'sys.createdAt']
@@ -42,7 +36,7 @@ async function getAllBlogs() {
 }
 
 async function getSingleBlog(slug: string) {
-    const { items } = await contentfulClient.getEntries<TypeBlogSkeleton>({
+    const { items } = await getClient().getEntries<TypeBlogSkeleton>({
         content_type: 'blog',
         limit: 1,
         'fields.slug': slug,
@@ -52,7 +46,7 @@ async function getSingleBlog(slug: string) {
 }
 
 async function getPage(title: string) {
-    const { items } = await contentfulClient.getEntries<TypePageSkeleton>({
+    const { items } = await getClient().getEntries<TypePageSkeleton>({
         content_type: 'page',
         limit: 1,
         'fields.title': title,

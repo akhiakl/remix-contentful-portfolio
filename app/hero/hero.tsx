@@ -29,7 +29,11 @@ export function Hero() {
         </div>
         <div className="mix-blend-luminosity relative">
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 bg-neutral-300 flex aspect-1/1 w-full max-h-full rounded-xl" />
-          <img loading="eager" srcSet={optimize("/akl1.png")} alt='Profile' className="aspect-6/7 object-contain w-100" />
+          <img
+            loading="eager"
+            srcSet={optimize("/akl1.png")}
+            sizes="(max-width: 768px) 50vw, 33vw"
+            alt='Profile' className="aspect-6/7 object-contain w-100" />
         </div>
       </div>
     </section>

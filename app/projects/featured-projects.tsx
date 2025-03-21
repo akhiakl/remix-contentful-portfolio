@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { use } from 'react'
 import ProjectCard from '~/components/ProjectCard'
 
@@ -15,7 +16,7 @@ const FeaturedProjects = ({ dataLoader }: { dataLoader: Promise<any> }) => {
           </p>
         </div>
         <div className="flex flex-col gap-20">
-          {projects.map((project) => (<ProjectCard key={project.id} {...project} />))}
+          {projects.map((project: any) => (<ProjectCard key={project.id} {...project} />))}
         </div>
       </div>
     </section>

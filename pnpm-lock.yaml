@@ -20,6 +20,18 @@ importers:
       contentful:
         specifier: ^11.5.4
         version: 11.5.4
+      i18next:
+        specifier: ^24.2.3
+        version: 24.2.3(typescript@5.7.3)
+      i18next-browser-languagedetector:
+        specifier: ^8.0.4
+        version: 8.0.4
+      i18next-fs-backend:
+        specifier: ^2.6.0
+        version: 2.6.0
+      i18next-http-backend:
+        specifier: ^3.0.2
+        version: 3.0.2
       isbot:
         specifier: ^5.1.17
         version: 5.1.23
@@ -32,9 +44,15 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-i18next:
+        specifier: ^15.4.1
+        version: 15.4.1(i18next@24.2.3(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-router:
         specifier: ^7.2.0
         version: 7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      remix-i18next:
+        specifier: ^7.1.0
+        version: 7.1.0(i18next@24.2.3(typescript@5.7.3))(react-i18next@15.4.1(i18next@24.2.3(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-router@7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
     devDependencies:
       '@eslint/js':
         specifier: ^9.21.0
@@ -209,6 +227,10 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
+
+  '@babel/runtime@7.26.10':
+    resolution: {integrity: sha512-2WJMeRQPHKSPemqk/awGrAiuFfzBmOIPXKizAsVhWH9YJqLZ0H+HS4c8loHGgW6utJ3E/ejXQUsiGaQy2NZ9Fw==}
+    engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.26.9':
     resolution: {integrity: sha512-aA63XwOkcl4xxQa3HjPMqOP6LiK0ZDv3mUPYEFXkpHbaFjtGggE1A61FjFzJnB+p7/oy2gA8E+rcBNl/zC1tMg==}
@@ -1416,6 +1438,9 @@ packages:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
     engines: {node: '>=10'}
 
+  cross-fetch@4.0.0:
+    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
+
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -1958,6 +1983,9 @@ packages:
     resolution: {integrity: sha512-HVJyzUrLIL1c0QmviVh5E8VGyUS7xCFPS6yydaVd1UegW+ibV/CohqTH9MkOLDp5o+rb82DMo77PTuc9F/8GKw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
+  html-parse-stringify@3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+
   html@1.0.0:
     resolution: {integrity: sha512-lw/7YsdKiP3kk5PnR1INY17iJuzdAtJewxr14ozKJWbbR97znovZ0mh+WEMZ8rjc3lgTK+ID/htTjuyGKB52Kw==}
     hasBin: true
@@ -1965,6 +1993,23 @@ packages:
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
     engines: {node: '>= 0.8'}
+
+  i18next-browser-languagedetector@8.0.4:
+    resolution: {integrity: sha512-f3frU3pIxD50/Tz20zx9TD9HobKYg47fmAETb117GKGPrhwcSSPJDoCposXlVycVebQ9GQohC3Efbpq7/nnJ5w==}
+
+  i18next-fs-backend@2.6.0:
+    resolution: {integrity: sha512-3ZlhNoF9yxnM8pa8bWp5120/Ob6t4lVl1l/tbLmkml/ei3ud8IWySCHt2lrY5xWRlSU5D9IV2sm5bEbGuTqwTw==}
+
+  i18next-http-backend@3.0.2:
+    resolution: {integrity: sha512-PdlvPnvIp4E1sYi46Ik4tBYh/v/NbYfFFgTjkwFl0is8A18s7/bx9aXqsrOax9WUbeNS6mD2oix7Z0yGGf6m5g==}
+
+  i18next@24.2.3:
+    resolution: {integrity: sha512-lfbf80OzkocvX7nmZtu7nSTNbrTYR52sLWxPtlXX1zAhVw8WEnFk4puUkCR4B1dNQwbSpEHHHemcZu//7EcB7A==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -2394,6 +2439,15 @@ packages:
     resolution: {integrity: sha512-myRT3DiWPHqho5PrJaIRyaMv2kgYf0mUVgBNOYMuCH5Ki1yEiQaf/ZJuQ62nvpc44wL5WDbTX7yGJi1Neevw8w==}
     engines: {node: '>= 0.6'}
 
+  node-fetch@2.7.0:
+    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
@@ -2640,6 +2694,19 @@ packages:
       react: '>=16.8.1'
       react-dom: '>=16.8.1'
 
+  react-i18next@15.4.1:
+    resolution: {integrity: sha512-ahGab+IaSgZmNPYXdV1n+OYky95TGpFwnKRflX/16dY04DsYYKHtVLjeny7sBSCREEcoMbAgSkFiGLF5g5Oofw==}
+    peerDependencies:
+      i18next: '>= 23.2.3'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -2725,6 +2792,15 @@ packages:
   regexp.prototype.flags@1.5.4:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
+
+  remix-i18next@7.1.0:
+    resolution: {integrity: sha512-4v6z+uvG7FrfWTyZZA3geckRI9YlGIp7JE3TK9cGDwu1P9Kksp45azEoAKPlsCA2FkOWykQPzSY8ZZO+QI1wZw==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      i18next: ^24.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-i18next: ^13.0.0 || ^14.0.0 || ^15.0.0
+      react-router: ^7.0.0
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -2954,6 +3030,9 @@ packages:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
 
+  tr46@0.0.3:
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+
   ts-api-utils@2.0.1:
     resolution: {integrity: sha512-dnlgjFSVetynI8nzgJ+qF62efpglpWRk8isUEWZGWlJYySCTD6aKvbUDu+zbPeDakk3bg5H4XpitHukgfL1m9w==}
     engines: {node: '>=18.12'}
@@ -3141,8 +3220,18 @@ packages:
       terser:
         optional: true
 
+  void-elements@3.1.0:
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
+    engines: {node: '>=0.10.0'}
+
   warning@3.0.0:
     resolution: {integrity: sha512-jMBt6pUrKn5I+OGgtQ4YZLdhIeJmObddh6CsibPxyQ5yPZm1XExSyzC1LCNX7BzhxWgiHmizBWJTHJIjMjTQYQ==}
+
+  webidl-conversions@3.0.1:
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+
+  whatwg-url@5.0.0:
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -3372,6 +3461,10 @@ snapshots:
       '@babel/plugin-transform-typescript': 7.26.8(@babel/core@7.26.9)
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/runtime@7.26.10':
+    dependencies:
+      regenerator-runtime: 0.14.1
 
   '@babel/runtime@7.26.9':
     dependencies:
@@ -4599,6 +4692,12 @@ snapshots:
       path-type: 4.0.0
       yaml: 1.10.2
 
+  cross-fetch@4.0.0:
+    dependencies:
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -5278,6 +5377,10 @@ snapshots:
     dependencies:
       lru-cache: 7.18.3
 
+  html-parse-stringify@3.0.1:
+    dependencies:
+      void-elements: 3.1.0
+
   html@1.0.0:
     dependencies:
       concat-stream: 1.6.2
@@ -5289,6 +5392,24 @@ snapshots:
       setprototypeof: 1.2.0
       statuses: 2.0.1
       toidentifier: 1.0.1
+
+  i18next-browser-languagedetector@8.0.4:
+    dependencies:
+      '@babel/runtime': 7.26.9
+
+  i18next-fs-backend@2.6.0: {}
+
+  i18next-http-backend@3.0.2:
+    dependencies:
+      cross-fetch: 4.0.0
+    transitivePeerDependencies:
+      - encoding
+
+  i18next@24.2.3(typescript@5.7.3):
+    dependencies:
+      '@babel/runtime': 7.26.10
+    optionalDependencies:
+      typescript: 5.7.3
 
   iconv-lite@0.4.24:
     dependencies:
@@ -5661,6 +5782,10 @@ snapshots:
 
   negotiator@0.6.4: {}
 
+  node-fetch@2.7.0:
+    dependencies:
+      whatwg-url: 5.0.0
+
   node-releases@2.0.19: {}
 
   nopt@8.1.0:
@@ -5916,6 +6041,15 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  react-i18next@15.4.1(i18next@24.2.3(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.9
+      html-parse-stringify: 3.0.1
+      i18next: 24.2.3(typescript@5.7.3)
+      react: 19.0.0
+    optionalDependencies:
+      react-dom: 19.0.0(react@19.0.0)
+
   react-is@16.13.1: {}
 
   react-lifecycles-compat@3.0.4: {}
@@ -6034,6 +6168,13 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       set-function-name: 2.0.2
+
+  remix-i18next@7.1.0(i18next@24.2.3(typescript@5.7.3))(react-i18next@15.4.1(i18next@24.2.3(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-router@7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
+    dependencies:
+      i18next: 24.2.3(typescript@5.7.3)
+      react: 19.0.0
+      react-i18next: 15.4.1(i18next@24.2.3(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-router: 7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
   resolve-from@4.0.0: {}
 
@@ -6332,6 +6473,8 @@ snapshots:
 
   toidentifier@1.0.1: {}
 
+  tr46@0.0.3: {}
+
   ts-api-utils@2.0.1(typescript@5.7.3):
     dependencies:
       typescript: 5.7.3
@@ -6500,9 +6643,18 @@ snapshots:
       fsevents: 2.3.3
       lightningcss: 1.29.1
 
+  void-elements@3.1.0: {}
+
   warning@3.0.0:
     dependencies:
       loose-envify: 1.4.0
+
+  webidl-conversions@3.0.1: {}
+
+  whatwg-url@5.0.0:
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
 
   which-boxed-primitive@1.1.1:
     dependencies:

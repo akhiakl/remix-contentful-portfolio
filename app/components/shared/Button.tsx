@@ -14,7 +14,7 @@ type ButtonProps = IconButtonBaseProps & React.ButtonHTMLAttributes<HTMLButtonEl
 type IconButtonProps = AnchorButtonProps | ButtonProps;
 const Button: React.FC<IconButtonProps> = ({ children, href, icon, variant = 'primary', ...props }) => {
     const containerClass = clsx(
-        "group flex items-center shrink-0 uppercase font-bold cursor-pointer",
+        "group inline-flex items-center shrink-0 uppercase font-bold cursor-pointer self-start",
         {
             "gap-3 bg-primary hover:bg-primary/80 text-neutral-950 rounded-full duration-100 ease-out": variant !== 'link',
             "gap-1 text-primary border-b": variant === 'link',

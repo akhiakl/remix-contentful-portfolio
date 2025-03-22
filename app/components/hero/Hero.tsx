@@ -1,24 +1,27 @@
 import React from 'react';
-import Button from '~/components/Button';
-import IconButton from '~/components/IconButton';
+import Button from '~/components/shared/Button';
+import IconButton from '~/components/shared/IconButton';
 import ArrowUpRightIcon from '~/icons/ArrowUpRightIcon';
 import GithubIcon from '~/icons/GithubIcon';
 import LinkedinIcon from '~/icons/LinkedinIcon';
 import { optimize } from 'lib/image';
-import Typewriter from '~/components/Typewriter';
+import Typewriter from '~/components/shared/Typewriter';
+import { Trans, useTranslation } from 'react-i18next';
 
 export function Hero() {
+  const { t } = useTranslation();
   return (
     <section className="md:h-desktop-screen flex justify-center">
       <div className="container flex flex-col md:flex-row gap-16 md:gap-20 justify-between items-center pt-10 pb-16 md:pt-8 md:pb-20 mx-auto">
         <div>
-          <h1 className="text-6xl md:text-8xl">
-            <span className="text-5xl md:text-7xl">Hi, i am</span><br />
-            Akhil K.
+          <h1 className="text-5xl md:text-7xl ">
+            <Trans i18nKey="heroTitle" values={{ name: "Akhil K." }}>
+              Hi, i am<span className="text-6xl md:text-8xl block">Akhil K</span>
+            </Trans>
           </h1>
-          <Typewriter className="text-neutral-400 uppercase relative" texts={['SENIOR FRONT END DEVELOPER', 'SENIOR FULL-STACK DEVELOPER']} />
+          <Typewriter className="text-neutral-400 uppercase relative" texts={t('roles', { returnObjects: true }) as string[]} />
           <div className='flex gap-4 items-center mt-8 md:mt-10'>
-            <Button icon={<ArrowUpRightIcon />}>Contact Me</Button>
+            <Button icon={<ArrowUpRightIcon />}>{t('contactMe')}</Button>
             <IconButton title="Linkedin" href="https://www.linkedin.com/in/akhiakl/">
               <LinkedinIcon />
             </IconButton>

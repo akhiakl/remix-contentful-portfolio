@@ -7,5 +7,15 @@
   "locale_en": "🇺🇸 Inglés",
   "locale_es": "🇪🇸 Español",
   "techstack": "Pila de tecnología",
-  "visitsite": "Visitar sitio"
+  "visitsite": "Visitar sitio",
+  "heroTitle": "Hola, soy <1>{{name}}</1>",
+  "roles": [
+    "DESARROLLADOR FRONT END SENIOR",
+    "DESARROLLADOR FULL-STACK SENIOR"
+  ],
+  "contactMe": "Contáctame",
+  "featuredProjects": "Proyectos destacados",
+  "featuredProjectsDescription": "Estos son algunos de los proyectos seleccionados que muestran mi pasión por el desarrollo frontal.",
+  "skillsTitle": "HABILIDADES",
+  "skillsDescription": "Estos son algunos de los proyectos seleccionados que muestran mi pasión por el desarrollo frontal."
 }

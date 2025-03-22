@@ -7,5 +7,15 @@
   "locale_en": "🇺🇸 Englisch",
   "locale_es": "🇪🇸 Spanisch",
   "techstack": "Technologie-Stack",
-  "visitsite": "Website besuchen"
+  "visitsite": "Website besuchen",
+  "heroTitle": "Hallo, ich bin <1>{{name}}</1>",
+  "roles": [
+    "SENIOR FRONT END ENTWICKLER",
+    "SENIOR FULL-STACK ENTWICKLER"
+  ],
+  "contactMe": "Kontaktieren Sie mich",
+  "featuredProjects": "Vorgestellte Projekte",
+  "featuredProjectsDescription": "Hier sind einige der ausgewählten Projekte, die meine Leidenschaft für die Front-End-Entwicklung zeigen.",
+  "skillsTitle": "FÄHIGKEITEN",
+  "skillsDescription": "Hier sind einige der ausgewählten Projekte, die meine Leidenschaft für die Front-End-Entwicklung zeigen."
 }

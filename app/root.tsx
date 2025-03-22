@@ -11,8 +11,8 @@ import {
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
-import Navbar from './navigation/navbar';
-import Footer from './navigation/footer';
+import Navbar from './components/navigation/Navbar';
+import Footer from './components/navigation/Footer';
 import i18next from "~/i18next.server";
 import { useTranslation } from 'react-i18next';
 import { useChangeLanguage } from 'remix-i18next/react';

@@ -7,5 +7,15 @@
   "locale_en": "🇺🇸 English",
   "locale_es": "🇪🇸 Spanish",
   "techstack": "Tech Stack",
-  "visitsite": "Visit Site"
+  "visitsite": "Visit Site",
+  "heroTitle": "Hi, i am <1>{{name}}</1>",
+  "roles": [
+    "SENIOR FRONT END DEVELOPER",
+    "SENIOR FULL-STACK DEVELOPER"
+  ],
+  "contactMe": "Contact Me",
+  "featuredProjectsTitle": "Featured Projects",
+  "featuredProjectsDescription": "Here are some of the selected projects that showcase my passion for front-end development.",
+  "skillsTitle": "SKILLS",
+  "skillsDescription": " Here are some of the selected projects that showcase my passion for front-end development."
 }

@@ -18,6 +18,8 @@ import { useTranslation } from 'react-i18next';
 import { useChangeLanguage } from 'remix-i18next/react';
 import i18n from './i18n';
 import { optimize } from 'lib/image';
+import PreviewProvider from './contentful/preview/PreviewProvider';
+import { draftMode } from './utils/draft-mode.server';
 
 export async function loader({ request }: Route.LoaderArgs) {
   const locale = await i18next.getLocale(request);
@@ -32,7 +34,9 @@ export async function loader({ request }: Route.LoaderArgs) {
     return redirect(newPath || "/");
   }
 
-  return { locale };
+  const isDraftMode = (await draftMode(request)).isEnabled;
+
+  return { locale, isDraftMode };
 }
 
 export const handle = {
@@ -66,7 +70,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   // Get the locale from the loader
-  const { locale } = useLoaderData<typeof loader>();
+  const { locale, isDraftMode } = useLoaderData<typeof loader>();
 
   const { i18n } = useTranslation();
 
@@ -85,7 +89,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <PreviewProvider locale={locale} draftMode={isDraftMode}>
+          {children}
+        </PreviewProvider>
+
         <ScrollRestoration />
         <Scripts />
       </body>

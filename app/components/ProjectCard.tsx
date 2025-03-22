@@ -6,25 +6,30 @@ import { optimize } from 'lib/image'
 import { motion, useScroll, useTransform } from 'motion/react'
 import techIcons from '~/icons/tech'
 import { useTranslation } from 'react-i18next'
+import type { TypeProject } from '~/contentful/types'
+import { useContentfulInspectorMode, useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 interface ProjectCardProps {
-  imageUrl: string;
-  title: string;
-  description: string;
-  tags: string[];
-  siteUrl?: string;
-  githubUrl?: string;
-  techStack?: string[];
+  project: TypeProject<'WITHOUT_UNRESOLVABLE_LINKS'>
 }
 
-const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techStack }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
+  const inspectorProps = useContentfulInspectorMode({
+    entryId: project.sys.id,
+  })
+  const { image, title, description, githubUrl, techStack, url } = useContentfulLiveUpdates(project.fields)
+
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
   const { t } = useTranslation()
+
+  const imageUrl = (image && 'fields' in image && image?.fields?.file?.url) ? image.fields.file.url : '/placeHlderImage'
   return (
     <div className="grid grid-col-1 md:grid-cols-2 gap-12 mt-4 items-center">
-      <div className="bg-neutral-900 p-7 md:p-15 rounded-xl aspect-square flex justify-center items-center" ref={ref}>
+      <div className="bg-neutral-900 p-7 md:p-15 rounded-xl aspect-square flex justify-center items-center"
+        ref={ref}
+        {...inspectorProps({ fieldId: 'image' })}>
         <img
           loading="lazy"
           className="max-w-full h-auto object-contain rounded-xl"
@@ -38,9 +43,9 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
       <motion.div initial={{ visibility: "hidden" }}
         animate={{ visibility: "visible" }}
         style={{ y }} className='flex flex-col gap-4 mt-8 md:mt-10'>
-        <h3 className="text-3xl">{title}</h3>
-        <p className="text-neutral-300">{description}</p>
-        <ul className="mb-4">
+        <h3 className="text-3xl" {...inspectorProps({ fieldId: 'title' })}>{title}</h3>
+        <p className="text-neutral-300" {...inspectorProps({ fieldId: 'description' })}>{description}</p>
+        <ul className="mb-4" {...inspectorProps({ fieldId: 'techStack' })}>
           <li className="py-4 border-b border-neutral-500 uppercase">
             {t('techstack')}
           </li>
@@ -57,8 +62,8 @@ const ProjectCard = ({ githubUrl, siteUrl, imageUrl, title, description, techSta
           })}
         </ul>
         <div className="flex gap-4">
-          <Button variant="link" target="_blank" href={siteUrl} icon={<ArrowUpRightIcon />}>{t('visitsite')}</Button>
-          {githubUrl && <Button variant="link" href={githubUrl} icon={<GithubIcon />}>GITHUB</Button>}
+          <Button {...inspectorProps({ fieldId: 'url' })} variant="link" target="_blank" href={url} icon={<ArrowUpRightIcon />}>{t('visitsite')}</Button>
+          {githubUrl && <Button {...inspectorProps({ fieldId: 'githubUrl' })} variant="link" href={githubUrl} icon={<GithubIcon />}>GITHUB</Button>}
         </div>
       </motion.div>
     </div>

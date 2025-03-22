@@ -3,9 +3,9 @@ import type { Route } from "./+types/($lang)._index";
 import { Hero } from '~/hero/hero';
 import FeaturedProjects from '~/projects/featured-projects';
 import Skills from '~/skills/skills';
-import { client } from '~/models/contentful/server';
+import { client } from '~/contentful/server';
 import FeaturedProjectsSkeleton from '~/components/FeaturedProjectsSkeleton';
-import { PreviewBanner } from '~/components/preview/PreviewBanner';
+import { PreviewBanner } from '~/contentful/preview/PreviewBanner';
 import { draftMode } from '~/utils/draft-mode.server';
 import { useLoaderData } from 'react-router';
 
@@ -18,8 +18,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const nonCriticalData = client.getProjects()
   const preview = (await draftMode(request)).isEnabled;
+  const nonCriticalData = client.getProjects(preview)
   return {
     nonCriticalData,
     preview

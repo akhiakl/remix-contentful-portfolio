@@ -5,11 +5,11 @@ import type { Route } from './+types/draft';
 export const loader = async ({ request }: Route.LoaderArgs) => {
   const requestUrl = new URL(request?.url);
   const secret = requestUrl?.searchParams?.get('secret');
-  const slug = requestUrl?.searchParams?.get('slug');
+  const slug = requestUrl?.searchParams?.get('slug') ?? "";
   const locale = requestUrl?.searchParams?.get('locale');
 
   // This secret should only be known to this API route and Contentful
-  if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !slug) {
+  if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET) {
     return data({ message: 'Invalid token' }, { status: 401 });
   }
 

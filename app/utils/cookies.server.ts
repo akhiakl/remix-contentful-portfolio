@@ -3,7 +3,7 @@ import { createCookie } from "react-router";
 export const cookie = createCookie("user-prefs", {
   path: "/",
   sameSite: "none",
-  httpOnly: true,
+  httpOnly: false,
   secure: true,
   secrets: [process.env.CONTENTFUL_PREVIEW_SECRET as string],
 });

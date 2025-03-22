@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { use } from 'react'
 import ProjectCard from '~/components/ProjectCard'
+import type { TypeProject } from '~/contentful/types'
 
-const FeaturedProjects = ({ dataLoader }: { dataLoader: Promise<any> }) => {
+type FeaturedProjectsProps = {
+  dataLoader: Promise<TypeProject<'WITHOUT_UNRESOLVABLE_LINKS'>[]>
+}
+
+const FeaturedProjects = ({ dataLoader }: FeaturedProjectsProps) => {
   const projects = use(dataLoader)
   return (
     <section>
@@ -16,7 +21,7 @@ const FeaturedProjects = ({ dataLoader }: { dataLoader: Promise<any> }) => {
           </p>
         </div>
         <div className="flex flex-col gap-20">
-          {projects.map((project: any) => (<ProjectCard key={project.id} {...project} />))}
+          {projects.map((project) => (<ProjectCard key={project.sys?.id} project={project} />))}
         </div>
       </div>
     </section>
